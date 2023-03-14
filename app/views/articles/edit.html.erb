@@ -1,23 +1,19 @@
-<%= link_to "Edit", edit_article_path(4) %>
-
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
-  </div>
-<% end %>
-
 <h1>Edit article</h1>
 
-<%= form_with(model: @article, url: edit_article_path(@article), method: :patch) do |form| %>
-  <%= form.label :name %>
+<%= form_with(model: @article, url: update_article_path(@article), method: :patch) do |form| %>
+  <p>
+  <%= form.label :name %><br/>
   <%= form.text_field :name %>
-  <br>
-  <%= form.label :body %>
+  </p>
+  
+  <p>
+  <%= form.label :body %><br/>
   <%= form.text_area :body %>
-  <br>
+  </p>
+
+  <p>
   <%= form.submit "Update article" %>
+  </p>
 <% end %>
-
-
 
 <%= link_to "Back to articles list", articles_path %>
